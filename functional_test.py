@@ -1,6 +1,7 @@
 import unittest
 from selenium import webdriver
 from selenium.webdriver.firefox.firefox_binary import FirefoxBinary
+from selenium.webdriver.common.keys import Keys
 
 
 class NewVisitorTest(unittest.TestCase):
@@ -37,8 +38,3 @@ class NewVisitorTest(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main(warnings='ignore')
-# binary = FirefoxBinary('/Applications/Firefox.app/Contents/MacOS/firefox-bin')
-# browser = webdriver.Firefox(firefox_binary=binary)
-# browser.get('http://localhost:8000')
-# assert 'To-Do' in browser.title
-# browser.quit()
