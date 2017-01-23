@@ -2,9 +2,10 @@ import unittest
 from selenium import webdriver
 from selenium.webdriver.firefox.firefox_binary import FirefoxBinary
 from selenium.webdriver.common.keys import Keys
+from django.test import LiveServerTestCase
 
 
-class NewVisitorTest(unittest.TestCase):
+class NewVisitorTest(LiveServerTestCase):
 
     def setUp(self):
         binary = FirefoxBinary(
@@ -21,6 +22,9 @@ class NewVisitorTest(unittest.TestCase):
 
     def test_can_start_a_list_and_retrieve_it_later(self):
         self.browser.get('http://localhost:8000')
+        # print('-----')
+        # print(self.live_server_url)
+        # self.browser.get(self.live_server_url)
 
         self.assertIn('To-Do', self.browser.title)
 
@@ -49,5 +53,5 @@ class NewVisitorTest(unittest.TestCase):
         #               [row.text for row in rows])
         self.fail('Finish the test!')
 
-if __name__ == '__main__':
-    unittest.main(warnings='ignore')
+# if __name__ == '__main__':
+#     unittest.main(warnings='ignore')
